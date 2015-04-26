@@ -1,5 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This file contains two functions: makeCacheMatrix and cacheSolve
+## 1. makeCacheMatrix: creates a matrix object that can cache object
+## 2. cacheSolve: calculates the inverse of matrix. If it has already
+## been calculated, it gets the value from cache
 
 ## This function simulates a class called makeCacheMatrix and it
 ## contains four main methods(functions):
@@ -11,8 +13,8 @@
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
-          x <<- y
-          m <<- NULL
+    x <<- y
+    m <<- NULL
   }
   get <- function() x
   setinverse <- function(inversematrix) m <<- inversematrix
@@ -22,13 +24,10 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-
 ## This function calculates the inverse of a matrix. If the matrix
 ## has already been calculated, the function gets the data from cache
 ## to make faster processing
-
-cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
+scacheSolve <- function(x, ...) {
   i <- x$getinverse()
   if(!is.null(i)) {
     print("data has been gotten from cached data")
