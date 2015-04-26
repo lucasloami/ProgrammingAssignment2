@@ -3,6 +3,10 @@
 
 ## This function simulates a class called makeCacheMatrix and it
 ## contains four main methods(functions):
+## 1. set: set the matrix
+## 2. get: return the matrix defined in makeCacheMatrix
+## 3. setinverse: set the inverse of the matrix to be cached
+## 4. getinverse: return the inverse of the matrix in cache
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -23,6 +27,15 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
+  inverse <- x$getinverse()
+  if(!is.null(inverse)) {
+    print("data has been gotten from cached data")
+    return(m)
+  }
+  data <- x$get()
+  inverse <- mean(data)
+  x$setinverse(inverse)
+  inverse
 }
 
 makeVector <- function(x = numeric()) {
