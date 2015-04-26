@@ -9,7 +9,6 @@
 ## 2. get: return the matrix defined in makeCacheMatrix
 ## 3. setinverse: set the inverse of the matrix to be cached
 ## 4. getinverse: return the inverse of the matrix in cache
-
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
   set <- function(y) {
@@ -27,14 +26,14 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function calculates the inverse of a matrix. If the matrix
 ## has already been calculated, the function gets the data from cache
 ## to make faster processing
-scacheSolve <- function(x, ...) {
-  i <- x$getinverse()
-  if(!is.null(i)) {
+cacheSolve <- function(x, ...) {
+  inverse <- x$getinverse()
+  if(!is.null(inverse)) {
     print("data has been gotten from cached data")
-    return(m)
+    return(inverse)
   }
   data <- x$get()
-  i <- solve(data)
-  x$setinverse(i)
-  i
+  inverse <- solve(data)
+  x$setinverse(inverse)
+  inverse
 }
